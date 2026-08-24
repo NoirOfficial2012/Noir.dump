@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -149,6 +148,52 @@ function closeProject() {
             <h1>Dino Gravity FLIP!</h1>
             <p style="font-size:18px; line-height:1.5;">
               This game was also made for onekey, after the community loving my first project, I was certain to make another cursed xd and that is how i came up with this one, a huge thx to the community for supporting me during onekey ♡
+            </p>
+            <button class="back" onclick="event.stopPropagation(); closeProject()">
+                back
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+var currentProject = null;
+
+function openProject(project) {
+    if (currentProject != null) {
+        return;
+    }
+
+    currentProject = project;
+    project.classList.add("open");
+
+    setTimeout(function() {
+        project.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 300);
+}
+
+function closeProject() {
+    if (currentProject == null) {
+        return;
+    }
+
+    currentProject.classList.remove("open");
+
+    setTimeout(function() {
+        currentProject = null;
+    }, 500);
+}
+</script>
+<div class="projects">
+    <div class="project" onclick="openProject(this)">
+        <img src="https://i.imgpeek.com/tM-LZFlohh73" alt="Type Or Die!">
+        <div class="project-info">
+            <h1>Type or die!</h1>
+            <p style="font-size:18px; line-height:1.5;">
+              This game was made by me for the semi-finals of the CBSE Science Expo, In this project all we have to do is type a word including the syllable that appears on the screen, if we fail to type them in time, we die. This project was a lot of fun to make and it was also a lot of fun to play. 
             </p>
             <button class="back" onclick="event.stopPropagation(); closeProject()">
                 back
