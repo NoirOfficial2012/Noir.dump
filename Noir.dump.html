@@ -1,470 +1,687 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Noir.dump</title>
-<style>
-body {
-    background-color: black;
-    color: white;
-    font-family: monospace;
-}
 
-.projects {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
-    margin-top: 50px;
-}
+    <style>
 
-.project {
-    width: 350px;
-    max-width: 90%;
-    cursor: pointer;
-    transition: 0.6s ease;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.project img {
-    width: 100%;
-    border: 3px solid white;
-    border-radius: 20px;
-    display: block;
-    transition: 0.6s ease;
-}
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: monospace;
+        }
 
-.project-info {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    margin-top: 0;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    padding: 0 25px;
-    transition: 0.6s ease;
-}
+        .title {
+            margin-top: 50px;
+            color: white;
+            font-size: 50px;
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
 
-.project.open {
-    width: 650px;
-    max-width: 90%;
-    transform: translateY(-20px);
-}
+        .subtitle {
+            margin-top: 20px;
+            padding: 0 20px;
+            color: white;
+            font-size: 20px;
+            font-family: "Courier New", monospace;
+            text-align: center;
+        }
 
-.project.open img {
-    width: 100%;
-}
+        .projects {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+            padding-bottom: 80px;
+        }
 
-.project.open .project-info {
-    max-height: 500px;
-    opacity: 1;
-    margin-top: 30px;
-    border: 2px solid white;
-    padding: 25px;
-}
+        .project {
+            width: 350px;
+            max-width: 90%;
+            cursor: pointer;
+            transition: 0.6s ease;
+        }
 
-.project.hide {
-    opacity: 0;
-    transform: scale(0.9);
-    pointer-events: none;
-}
+        .project img {
+            width: 100%;
+            border: 3px solid white;
+            border-radius: 20px;
+            display: block;
+            transition: 0.6s ease;
+        }
 
-.back {
-    background: black;
-    color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: monospace;
-    transition: 0.2s;
-}
+        .project-info {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
 
-.back:hover {
-    transform: scale(1.05);
-}
-</style>
+            border: 2px solid transparent;
+            border-radius: 20px;
+
+            padding: 0 25px;
+
+            transition: 0.6s ease;
+        }
+
+        .project.open {
+            width: 650px;
+            max-width: 90%;
+            transform: translateY(-20px);
+        }
+
+        .project.open .project-info {
+            max-height: 700px;
+            opacity: 1;
+
+            margin-top: 30px;
+
+            border: 2px solid white;
+
+            padding: 25px;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .project-link {
+            background: black;
+            color: white;
+
+            border: 2px solid white;
+            border-radius: 10px;
+
+            padding: 10px 18px;
+
+            cursor: pointer;
+
+            font-family: monospace;
+            font-size: 16px;
+
+            text-decoration: none;
+
+            transition: 0.2s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            background: white;
+            color: black;
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<p style="margin-top:50px; color:white; font-size:50px; font-family:'Courier New'; text-align:center;">
-    Noir.dump
-</p>
+    <p class="title">
+        Noir.dump
+    </p>
 
-<p style="margin-top:20px; color:white; font-size:20px; font-family:'Courier New'; text-align:center;">
-    here you can check out and rate all the software projects i have ever built
-</p>
+    <p class="subtitle">
+       Here You Can Check Out All The Software Projects I Ever Built!
+    </p>
 
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/44V-b4eIlQvM" alt="Flappy Crash">
-        <div class="project-info">
-            <h1>Flappy Crash</h1>
-            <p style="font-size:18px; line-height:1.5;">
-                This project was made by me for onekey, I was sitting at my desk playing flappy bird when i came across the onekey ysws and i eventually came up with this idea, this was one of my first games and it was very fun to make. Not to mention, the community loved it too!
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+
+    <div class="projects">
+
+
+        <!-- FLAPPY CRASH -->
+
+        <div class="project" onclick="openProject(this)">
+
+            <img
+                src="https://i.imgpeek.com/44V-b4eIlQvM"
+                alt="Flappy Crash"
+            >
+
+            <div class="project-info">
+
+                <h1>
+                    Flappy Crash
+                </h1>
+
+                <p class="description">
+                    This project was made by me for onekey, I was sitting at my desk playing flappy bird when i came across the onekey ysws and i eventually came up with this idea, this was one of my first games and it was very fun to make. Not to mention, the community loved it too!
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://taupe-sorbet-1669e1.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Flappy-CRASH-"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- DINO GRAVITY -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/Tu7rAocizpF-"
+                alt="Dino Gravity FLIP!"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/Tu7rAocizpF-" alt="Dino Gravity FLIP!">
-        <div class="project-info">
-            <h1>Dino Gravity FLIP!</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              This game was also made for onekey, after the community loving my first project, I was certain to make another cursed xd and that is how i came up with this one, a huge thx to the community for supporting me during onekey ♡
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    Dino Gravity FLIP!
+                </h1>
+
+                <p class="description">
+                    This game was also made for onekey, after the community loving my first project, I was certain to make another cursed xd and that is how i came up with this one, a huge thx to the community for supporting me during onekey ♡
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://gleaming-pasca-f29874.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Dino-Gravity-Flip-XD"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- TYPE OR DIE -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/tM-LZFlohh73"
+                alt="Type or die!"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/tM-LZFlohh73" alt="Type Or Die!">
-        <div class="project-info">
-            <h1>Type or die!</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              This game was made by me for the semi-finals of the CBSE Science Expo, In this project all we have to do is type a word including the syllable that appears on the screen, if we fail to type them in time, we die. This project was a lot of fun to make and it was also a lot of fun to play. 
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    Type or die!
+                </h1>
+
+                <p class="description">
+                    This game was made by me for the semi-finals of the CBSE Science Expo, In this project all we have to do is type a word including the syllable that appears on the screen, if we fail to type them in time, we die. This project was a lot of fun to make and it was also a lot of fun to play.
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://dancing-pastelito-f21951.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Type-Or-Die"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- 3AM -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/5AKAwxYOab93"
+                alt="3am!"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script>
-</script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/5AKAwxYOab93" alt="3am!">
-        <div class="project-info">
-            <h1>3am!</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              This is a short ongoing story that i made for 3am - hc ysws btw, no spoilers jst read it pls (>﹏<)
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    3am!
+                </h1>
+
+                <p class="description">
+                    This is a short ongoing story that i made for 3am - hc ysws btw, no spoilers jst read it pls (&gt;﹏&lt;)
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://superlative-sawine-e25e1a.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/3am"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- PORTFOLIO -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/vWPLHPKnopjo"
+                alt="Portfolio!"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script>
-</script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/vWPLHPKnopjo" alt="3am!">
-        <div class="project-info">
-            <h1>Portfolio!</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              Just my portfolio nothing else! also btw hover over the pfp for a surprise (˶ᵔ ᵕ ᵔ˶)
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    Portfolio!
+                </h1>
+
+                <p class="description">
+                    Just my portfolio nothing else! also btw hover over the pfp for a surprise (˶ᵔ ᵕ ᵔ˶)
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://transcendent-centaur-7ebc25.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Portfolio"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- CHARCOAL -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/0rrOrslzqIso"
+                alt="Charcoal"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script></script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/0rrOrslzqIso" alt="3am!">
-        <div class="project-info">
-            <h1>Charcoal</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              This was made for the typeface YSWS. I Was Randomly Scrolling The YSWS Page at Hack Club (Im not the only one who does that, Right?) Well Anyways Thats When I Saw This YSWS Event & I Was Instantly Hooked. You See My Whole Family Is Either Artists Or Designers & For Some Reason Im The Only One In My Family Who Is Not Head Over Heels For Art XD Instead I Have a Huge Interest In Robotics So I Thought To Myself, "Why Not Try Making A Font?" So Here I Am.
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    Charcoal
+                </h1>
+
+                <p class="description">
+                    This was made for the typeface YSWS. I Was Randomly Scrolling The YSWS Page at Hack Club (Im not the only one who does that, Right?) Well Anyways Thats When I Saw This YSWS Event &amp; I Was Instantly Hooked. You See My Whole Family Is Either Artists Or Designers &amp; For Some Reason Im The Only One In My Family Who Is Not Head Over Heels For Art XD Instead I Have a Huge Interest In Robotics So I Thought To Myself, "Why Not Try Making A Font?" So Here I Am.
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://classy-platypus-717786.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Charcoal-Font"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- VIRTUAL MP3 PLAYER -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/FXqM7wx4n8Bp"
+                alt="Virtual Mp3 Player"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script></script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/FXqM7wx4n8Bp" alt="3am!">
-        <div class="project-info">
-            <h1>Virtual Mp3 Player</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              A very simple mp3 player.
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    Virtual Mp3 Player
+                </h1>
+
+                <p class="description">
+                    A very simple mp3 player.
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://tranquil-custard-b4be61.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Spotify-V2-No-Algorithm-"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+        <!-- MAGOS -->
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        <div class="project" onclick="openProject(this)">
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
+            <img
+                src="https://i.imgpeek.com/puOorzjX7A4n"
+                alt="MAGOS"
+            >
 
-    currentProject.classList.remove("open");
+            <div class="project-info">
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script></script>
-<div class="projects">
-    <div class="project" onclick="openProject(this)">
-        <img src="https://i.imgpeek.com/puOorzjX7A4n" alt="3am!">
-        <div class="project-info">
-            <h1>MAGOS</h1>
-            <p style="font-size:18px; line-height:1.5;">
-              A WHOLE WEB OS! ngl this is the biggest project i have ever worked on, it took me 3 months jst to get to this point, and trust me this is no where finished!
-            </p>
-            <button class="back" onclick="event.stopPropagation(); closeProject()">
-                back
-            </button>
+                <h1>
+                    MAGOS
+                </h1>
+
+                <p class="description">
+                    A WHOLE WEB OS! ngl this is the biggest project i have ever worked on, it took me 3 months jst to get to this point, and trust me this is no where finished!
+                </p>
+
+
+                <div class="project-links">
+
+                    <button
+                        class="project-link"
+                        onclick="event.stopPropagation(); closeProject()"
+                    >
+                        Back
+                    </button>
+
+                    <a
+                        class="project-link"
+                        href="https://gorgeous-kringle-48a067.netlify.app/"
+                        target="_blank"
+                    >
+                        Demo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://github.com/NoirOfficial2012/Mag-OS"
+                        target="_blank"
+                    >
+                        Repo
+                    </a>
+
+                    <a
+                        class="project-link"
+                        href="https://discord.com/users/1293554567887454345"
+                    >
+                        Write to the devs
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
+
+
     </div>
-</div>
 
-<script>
-var currentProject = null;
 
-function openProject(project) {
-    if (currentProject != null) {
-        return;
-    }
 
-    currentProject = project;
-    project.classList.add("open");
+    <script>
 
-    setTimeout(function() {
-        project.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-    }, 300);
-}
+        let currentProject = null;
 
-function closeProject() {
-    if (currentProject == null) {
-        return;
-    }
 
-    currentProject.classList.remove("open");
+        function openProject(project) {
 
-    setTimeout(function() {
-        currentProject = null;
-    }, 500);
-}
-</script>
+            if (currentProject !== null) {
+                return;
+            }
+
+            currentProject = project;
+
+            project.classList.add("open");
+
+
+            setTimeout(function () {
+
+                project.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 300);
+
+        }
+
+
+        function closeProject() {
+
+            if (currentProject === null) {
+                return;
+            }
+
+            const project = currentProject;
+
+            project.classList.remove("open");
+
+
+            setTimeout(function () {
+
+                if (currentProject === project) {
+                    currentProject = null;
+                }
+
+            }, 500);
+
+        }
+
+    </script>
 
 </body>
+
 </html>
