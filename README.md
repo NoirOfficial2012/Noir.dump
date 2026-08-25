@@ -17,3 +17,5 @@ NoirOfficial2012 (Me!)
 ***Help***
 
 First please try to refresh the page, most of the problems get fixed there, if you want to report a bug contact - phonkpanthom@gmail.com
+
+<img width="959" height="443" alt="image" src="https://github.com/user-attachments/assets/708c1987-89c3-4dcb-af98-aa0ee002bbf2" />
