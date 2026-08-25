@@ -1,6 +1,14 @@
-I recently saw that i had a bunch of projects jst sitting there collecting dust, so i thought why not make a home for them xd so uhh yea, this is basically gonna be a dump folder for all of my software projects xd
+**Noir.Dump**
+A home for all of my web based projects!
 
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/cd5f4a4b-b33f-46f5-b956-bc31b56c558f" />
+**Description**
+This project was made by me because I saw that a munch of my projects were kida jst sitting there collecting dust, so i was like why not make a home for them, and thats why this project was made! :)
 
-ngl this looks sick!
+**Getting Started**
+This is a web based program and thus does not need anything to run! jst click this link and it will open - https://imaginative-gecko-d392bc.netlify.app/
 
+**Authors**
+NoirOfficial2012 (Me!)
+
+**Help**
+First please try to refresh the page, most of the problems get fixed there, if you want to report a bug contact - phonkpanthom@gmail.com
